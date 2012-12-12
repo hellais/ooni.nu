@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title> - OONI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/media/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/media/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/media/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/media/ico/apple-touch-icon-57-precomposed.png">
+
+    
+
+    <link href="/blog/atom.xml" rel="alternate" title="OONI" type="application/atom+xml"/>
+    
+    
+
+    <link rel="stylesheet" href="/media/css/bootstrap.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/media/css/bootstrap-responsive.css" type="text/css" media="screen" charset="utf-8">
+    
+    <link rel="stylesheet" href="/media/css/ooni.css" type="text/css" media="screen" charset="utf-8">
+    
+
+
+    
+
+    <!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/media/js/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="topbar">
+  <div class="header">
+    <div class="container">
+      <!--
+      <a class="brand" href="/" title="OONI - Open Observatory of Network Interference">
+      </a>
+      -->
+      <img alt="Tor" src="/media/img/onion.jpg">
+      <h1 class="site-title">
+        <a href="/index.html">
+            OONI
+        </a>: Open Observatory of Network Interference
+      </h1>
+
+    
+    
+
+
+<ul class="nav nav-pills">
+  <li><a href="/index.html">Home</a></li>
+  
+    <li>
+    <a href="/about/about.html">About</a>
+    </li>
+  
+    <li class="active" >
+    <a href="/releases/index.html">Releases</a>
+    </li>
+  
+</ul>
+
+
+    
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+<!-- BEGIN content-header -->
+<!-- END content-header -->
+
+
+
+
+<!-- BEGIN content-Body -->
+<div class="container">
+<div class="row">
+
+<div class="span3">
+  <!-- BEGIN SECOND -->
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+    <li><a href="#data" data-toggle="tab">Data</a></li>
+    <li><a href="#help" data-toggle="tab">Help Scan!</a></li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+  <!-- BEGIN tab-content -->
+    <div class="tab-pane active" id="details">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>Method</td>
+          <td>Transparent HTTP proxy</td>
+        </tr>
+        <tr>
+          <td>OONI Test</td>
+          <td>HTTP Host</td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>United States</td>
+        </tr>
+        <tr>
+          <td>Provider</td>
+          <td>T-Mobile USA</td>
+        </tr>
+        <tr>
+          <td>Product name</td>
+          <td>Web Guard</td>
+        </tr>
+        <tr>
+          <td>Product website</td>
+          <td>http://support.t-mobile.com/docs/DOC-2144</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="tab-pane" id="data">
+    <ul>
+      <dl class="dl-horizontal">
+        
+        <dt>Full scan result</dt>
+        <dd><a href="/media/releases/2012/T-Mobile_USA_WebGuard/t-mobile-scan.yamlooni.tar.gz" class="btn btn-small">Download</a>
+</dd>
+        
+        <dt>List of censored sites</dt>
+        <dd><a href="/media/releases/2012/T-Mobile_USA_WebGuard/t-mobile-scan-blockedsites.txt" class="btn btn-small">Download</a>
+</dd>
+        
+        <dt>Categories of censored sites</dt>
+        <dd><a href="/media/releases/2012/T-Mobile_USA_WebGuard/t-mobile-scan-blockedsites-categorized.txt" class="btn btn-small">Download</a>
+</dd>
+        
+
+        <!-- dt>List of censored sites</dt>
+            <dd><a href="#" class="btn btn-small">Download</a>
+        </dd>
+        <dt>Categories of censored sites</dt>
+            <dd><a href="#" class="btn btn-small">Download</a>
+        </dd-->
+    </div>
+
+    <div class="tab-pane" id="help">
+      <h4>On the affected network?</h4>
+      <p>If you are on these networks and want to help out
+        scanning, contact me at arturo [at] filasto [dot] net</p>
+    </div>
+  <!-- END tab-content -->
+  </div>
+
+
+  <!-- END SECOND -->
+
+</div>
+
+<div class="span9">
+  <div id="content-header">
+      <h1>T-Mobile USA Web Guard</h1>
+      <span class="post-date">Wed 21 Mar 2012</span>
+  </div>
+
+  <div id="post-content">
+      
+
+      <!-- Hyde::Article::Begin -->
+
+<p>T-Mobile USA offers a "feature" to restrict access to certain
+kinds of content. This is called Web Guard. Supposedly Web Guard
+is supposed to inhibit access to content that falls under the
+following categories: Alcohol, Mature Content, Violence,
+Drugs, Pornography,  Weapons, Gambling, Suicide, Guns, Hate,
+Tobacco,&nbsp;Ammunition.
+</p>
+
+<p>
+By developing an OONI-probe test we were able to extract part of
+the list of censored content and discovered that sites that do
+not fall under these categories were also censored.
+This feature is enabled by default on all prepaid accounts and
+although it can be disabled by customers who wish to do so
+(if over 18 years of age), it is not clearly stated in the
+error page how to do so. This means that T-Mobile USA customers may
+be drawn into the Filternet without knowing how to get out.<br />
+</p>
+
+<h5>How is the censorship&nbsp;performed?</h5>
+
+<p>
+The technique being used by T-Mobile USA to restrict access to certain content
+involves deploying a transprent HTTP proxy. This proxy intercepts every HTTP
+packet going through the network and checks it's Host header field to see if
+it on the censored list. If the site is to be blocked it injects a fake response
+warning the user of the block. What this means is that the block is only effective
+against unencrypted HTTP traffic, but does not work for encrypted HTTPs&nbsp;traffic.
+</p>
+
+<h5>Some sites should not be&nbsp;censored</h5>
+
+<p>
+While most of the censored sites are legitimately categorized, there are certain
+ones that do not fall under the categories of the block.
+Here is a list of sites that we found to be censored, but that we don't believe
+belong to any of the following categories Alcohol, Mature Content, Violence,
+Drugs, Pornography, Weapons, Gambling, Suicide, Guns, Hate, Tobacco,&nbsp;Ammunition.
+</p>
+
+<!-- END ROW -->
+
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot41">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/torproject.org.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot41">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/torproject.org.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://torproject.org</h5>
+    <p>The Tor Project is dedicated to proving anonymous secure&nbsp;communication</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot38">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/italian-censorship.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot38">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/italian-censorship.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://217.175.53.72/</h5>
+    <p>This is one of the most interestingly blocked website. Italy practices DNS based censorship for website that are related to
+  online gambling. This is the block page is displayed when the IP address in the DNS response is spoofed. This is meta&nbsp;censorship! </p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot37">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/web.archive.org.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot37">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/web.archive.org.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://web.archive.org/</h5>
+    <p>The internet archive Way Back Machine. The Library of the&nbsp;Internet.</p>
+  </div>
+  </div>
+</div>
+
+<!-- END -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot0">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/newgrounds.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot0">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/newgrounds.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://newgrounds.com</h5>
+    <p>Newgrounds is an American entertainment and social media website. <a href="https://en.wikipedia.org/wiki/Newgrounds">Wikipedia&nbsp;entry</a></p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot1">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/wjunction.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot1">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/wjunction.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://wjunction.com/</h5>
+    <p>Webmaster&nbsp;Hangout</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot2">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/logicalmedia.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot2">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/logicalmedia.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://logicalmedia.com/</h5>
+    <p>Logical Media is an Affiliate&nbsp;Network.</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot3">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/cosmopolitan.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot3">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/cosmopolitan.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://cosmopolitan.com/</h5>
+    <p>Cosmopolitan is an international magazine for women. <a href="https://en.wikipedia.org/wiki/Cosmopolitan_(magazine)">Wikipedia&nbsp;Article</a></p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot5">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/nullrefer.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot5">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/nullrefer.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://nullrefer.com/</h5>
+    <p>Hide Refer hides the visitors HTTP refer from being seen by other&nbsp;websites</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot6">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/sportscn.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot6">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/sportscn.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://sportscn.com/</h5>
+    <p>Chinese sports news&nbsp;website</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot7">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/programme.tv.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot7">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/programme.tv.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://programme.tv/</h5>
+    <p>French TV guide&nbsp;website.</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot8">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/nulled.cc.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot8">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/nulled.cc.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://nulled.cc/</h5>
+    <p>Russian programming&nbsp;forum</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot9">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/ir-tci.org.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot9">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/ir-tci.org.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://ir-tci.org/</h5>
+    <p>Iranian&nbsp;Forum</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot12">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/zonebourse.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot12">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/zonebourse.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://zonebourse.com/</h5>
+    <p>French economics and financial news&nbsp;site</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot14">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/hackbase.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot14">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/hackbase.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://hackbase.com/</h5>
+    <p>Chinese computer security&nbsp;website</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot15">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/whatreallyhappened.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot15">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/whatreallyhappened.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://whatreallyhappened.com/</h5>
+    <p>9/11 conspiracy theory news&nbsp;site</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot17">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/p.tl.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot17">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/p.tl.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://p.tl/</h5>
+    <p>Japanese URL shortening&nbsp;service</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot20">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/10minutesaperdre.fr.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot20">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/10minutesaperdre.fr.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://10minutesaperdre.fr/</h5>
+    <p>French funny news&nbsp;website</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot21">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/statsie.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot21">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/statsie.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://statsie.com/</h5>
+    <p>Website statistics collection&nbsp;site</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot22">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/bbcprofit.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot22">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/bbcprofit.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://bbcprofit.com/</h5>
+    <p>Financial advice&nbsp;website</p>
+  </div>
+  </div>
+</div>
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot23">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/el-annuaire.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot23">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/el-annuaire.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://el-annuaire.com/</h5>
+    <p>French website&nbsp;index</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot24">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/livesports.pl.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot24">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/livesports.pl.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://livesports.pl/</h5>
+    <p>Polish sports news&nbsp;website</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot25">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/titan007.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot25">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/titan007.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://titan007.com/</h5>
+    <p>Chinese sports news&nbsp;website</p>
+  </div>
+  </div>
+</div>
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot27">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/girlpower.it.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot27">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/girlpower.it.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://girlpower.it/</h5>
+    <p>Italian women advice&nbsp;website</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot28">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/yusukebe.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot28">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/yusukebe.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://yusukebe.com/</h5>
+    <p>Japanese&nbsp;blog</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot29">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/sougouwiki.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot29">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/sougouwiki.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://sougouwiki.com/</h5>
+    <p>Japanese&nbsp;wiki</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot30">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/wiki-live.com.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot30">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/wiki-live.com.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://wiki-live.com/</h5>
+    <p>Online Article&nbsp;directory</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot31">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/hltv.org.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot31">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/hltv.org.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://hltv.org/</h5>
+    <p>Sports news&nbsp;website</p>
+  </div>
+  </div>
+</div>
+
+<!-- END -->
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+<!-- BEGIN ROW -->
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot32">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/elu24.ee.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot32">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/elu24.ee.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://elu24.ee/</h5>
+    <p>Estonian news&nbsp;portal</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot33">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/pitsirikos.net.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot33">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/pitsirikos.net.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://pitsirikos.net/</h5>
+    <p>Greek political&nbsp;blog</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot34">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/kath.net.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot34">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/kath.net.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://kath.net/</h5>
+    <p>Religious news&nbsp;site</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<div class="row thumbrow">
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot35">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/hackforums.net.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot35">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/hackforums.net.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://hackforums.net/</h5>
+    <p>Computer security&nbsp;Forum</p>
+  </div>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="modal hide fade" id="Screenshot40">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/echartsinfrance.net.png">
+  </div>
+  <div class="thumbnail">
+  <a data-toggle="modal" href="#Screenshot40">
+    <img src="/media/releases/2012/T-Mobile_USA_WebGuard/screenshot/chartsinfrance.net.png" height="180px" width="260px">
+</a>
+  <div class="caption">
+    <h5>http://www.chartsinfrance.net/</h5>
+    <p>French pop music hit&nbsp;list</p>
+  </div>
+  </div>
+</div>
+
+<!-- END ROW -->
+</div>
+
+<h5>What can we learn from&nbsp;this?</h5>
+
+<p>
+That if you are a Chinese sports fan or a French interested in economics under 18 you will
+have a hard time going with T-Mobile in the US. There appears to be overall a tendency to blocking
+foreign sports news&nbsp;websites.
+</p>
+
+<p>When I asked T-Mobile US about the matter this is what came out with the&nbsp;following:</p>
+
+<pre class="prettyprint linenums">
+ Arturo Filastò @hellais
+@TMobileHelp Under what category does http://torproject.org fall under? I don't see any reason for it being blocked. @mikavienna @ioerror
+
+ T-Mobile USA @TMobileHelp
+Hi there. Here's more info about webguard. http://ow.ly/9JbxO Please let us know if we can help. ^CG
+
+ Arturo Filastò @hellais
+@TMobileHelp Why is web guard blocking http://torproject.org? It does not appear to belong to the filtered categories.
+
+ T-Mobile USA @TMobileHelp
+@hellais @MiKaVienna @ioerror http://torproject.org is not blocked. There must be a webguard on your line. Please contact us to resolve. ^CG
+
+ Arturo Filastò  @hellais
+Wonder what keywords it picket up in @torproject that fit in these categories: http://support.t-mobile.com/docs/DOC-2144#What_categories_will_be_completely_restricted_with_the_Web_Guard_feature
+
+ T-Mobile USA  @TMobileHelp
+My guess would be system picked up keywords there. Let us know if we can assist in turning webguard off. ^CG
+
+ Arturo Filastò  @hellais
+Also, doesn't t-mobile buy the list of censored sites from a third party? Or does it compile it itself?
+
+ T-Mobile USA @TMobileHelp
+My guess would be system picked up keywords there. Let us know if we can assist in turning webguard off. ^CG
+
+ Arturo Filastò @hellais
+My questions are: why is Web Guard enabled on my account and why sites such as http://torproject.org are filtered.
+
+ T-Mobile USA @TMobileHelp
+I don't have enough information to speculate further about the details. I CAN help you turn off webguard? ^CG
+
+ Arturo Filastò @hellais
+@TMobileHelp what leads TMobile to believe that a customer is interested in censorship? Is Web Guard activated on all prepaid accounts?
+
+ T-Mobile USA @TMobileHelp
+Must be because when your account was set up, we thought you wanted it. If you don't, please contact us: http://ow.ly/9JllQ ^CG
+</pre>
+
+<p>
+So T-Mobile is basically interfering into what should be taught by
+parents to their children. Since most of prepaid customers are
+under 18 they reserve the right to decide what is right and wrong
+for them, even bypassing their parents.<br />
+If I were a parent I would be mad that T-Mobile US chooses for my
+what my child should watch and should&nbsp;not.
+</p>
+
+<!-- Hyde::Article::End -->
+
+      
+  </div>
+
+
+</div>
+
+
+
+</div>
+
+</div>
+
+<!-- END content-Body -->
+
+
+
+    <div class="container">
+<footer class="row">
+    <hr>
+    <section class="ten columns centered">
+        <p>The Tor Project - 2012.</p>
+    </section>
+</footer>
+</div>
+
+
+<!-- Included JS Files -->
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src="/media/js/jquery.js"></script>
+<script src="/media/js/google-code-prettify/prettify.js"></script>
+<script src="/media/js/bootstrap-transition.js"></script>
+<script src="/media/js/bootstrap-alert.js"></script>
+<script src="/media/js/bootstrap-modal.js"></script>
+
+<script src="/media/js/bootstrap-dropdown.js"></script>
+<script src="/media/js/bootstrap-scrollspy.js"></script>
+<script src="/media/js/bootstrap-tab.js"></script>
+<script src="/media/js/bootstrap-tooltip.js"></script>
+<script src="/media/js/bootstrap-popover.js"></script>
+<script src="/media/js/bootstrap-button.js"></script>
+<script src="/media/js/bootstrap-collapse.js"></script>
+<script src="/media/js/bootstrap-carousel.js"></script>
+<script src="/media/js/bootstrap-typeahead.js"></script>
+
+<script>
+
+    $(function() {
+      $('.tabs a:last').tab('show')
+    })
+</script>
+
+
+</body>
+</html>
+

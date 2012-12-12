@@ -1,0 +1,31 @@
+{% extends "skeleton/_body.html" %}
+
+{% block content_body %}
+
+<!-- BEGIN content-Body -->
+<div class="container">
+    {% filter typogrify %}
+
+    {% markdown %}
+
+    {% block article %}
+    {% endblock %}
+
+    {% endmarkdown %}
+
+    {% endfilter %}
+</div>
+
+<!-- END content-Body -->
+
+{% endblock %}
+
+{% block content_header %}
+<!-- BEGIN content-header -->
+<!-- END content-header -->
+{% endblock %}
+
+{% block context_nav %}
+{% include "skeleton/_context_nav.html" %}
+{% endblock %}
+
